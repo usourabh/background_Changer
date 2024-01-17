@@ -1,109 +1,23 @@
-const colorCodes = [
-  "#FF5733",
-  "#66CC99",
-  "#9933CC",
-  "#FFCC00",
-  "#3399FF",
-  "#FF6666",
-  "#99FF66",
-  "#FF33CC",
-  "#66CCFF",
-  "#FF9900",
-  "#CCFF66",
-  "#FF3366",
-  "#99CCFF",
-  "#FF9933",
-  "#66FF66",
-  "#FF3399",
-  "#66FFCC",
-  "#FF6600",
-  "#CCFF33",
-  "#3366FF",
-  "#FF66CC",
-  "#66FF99",
-  "#FF3300",
-  "#99FF33",
-  "#3366CC",
-  "#FF3366",
-  "#33FF66",
-  "#CCFF00",
-  "#3366FF",
-  "#FF6633",
-  "#00CCFF",
-  "#FF99CC",
-  "#33FFCC",
-  "#CC6600",
-  "#FFCC33",
-  "#33FF99",
-  "#CC00FF",
-  "#FFCC66",
-  "#0099FF",
-  "#CC3366",
-  "#FF0033",
-  "#99FF00",
-  "#0033FF",
-  "#FF33FF",
-  "#00FF33",
-  "#FF00CC",
-  "#66FF00",
-  "#00CCFF",
-  "#CC00CC",
-  "#33CCFF",
-  "#993366",
-  "#66FFCC",
-  "#CC9966",
-  "#FF9966",
-  "#66CCCC",
-  "#FF9966",
-  "#6666CC",
-  "#FF9900",
-  "#339966",
-  "#CC3366",
-  "#99CC00",
-  "#CC9933",
-  "#66FF33",
-  "#FF6699",
-  "#66FF66",
-  "#CC6699",
-  "#33CCCC",
-  "#FFCC99",
-  "#3366CC",
-  "#FF6633",
-  "#99CC33",
-  "#FF3366",
-  "#CC3399",
-  "#99CC66",
-  "#33CC99",
-  "#CC6666",
-  "#66CC33",
-  "#CC9933",
-  "#66FF99",
-  "#99FF99",
-  "#336699",
-  "#CC6633",
-  "#99CC99",
-  "#3366FF",
-  "#FF3300",
-  "#00CCFF",
-  "#9966CC",
-  "#00FF00",
-  "#FF3300",
-  "#CCFF66",
-  "#66CC99",
-  "#3366FF",
-  "#CC99CC",
-  "#FFCC00",
-  "#99CCFF",
-  "#CC66CC",
-  "#FF00FF",
-  "#66FF33",
-  "#00CC99",
-  "#FF00CC",
-];
-function randomColorChanger() {
-  const randomColor = Math.floor(Math.random() * colorCodes.length);
-  //   console.log(randomColor, colorCodes[randomColor]);
-  document.body.style.backgroundColor = colorCodes[randomColor];
+let valuesFrom0to255 = [];
+for (let j = 0; j <= 255; j++) {
+  valuesFrom0to255.push(j);
 }
 
-// @todo: fix the random hexcode generator
+randomColorChanger = () => {
+  let rgbColorValue = "rgb(";
+  for (let i = 0; i < 3; i++) {
+    let a = Math.floor(Math.random() * valuesFrom0to255.length);
+
+    if (i == 0) {
+      rgbColorValue = rgbColorValue.concat(a);
+    }
+    if (i == 1) {
+      rgbColorValue = rgbColorValue.concat(",", a);
+    }
+    if (i == 2) {
+      rgbColorValue = rgbColorValue.concat(",", a, ")");
+    }
+  }
+  console.log(rgbColorValue);
+  document.body.style.backgroundColor = rgbColorValue;
+};
